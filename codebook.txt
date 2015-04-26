@@ -1,0 +1,145 @@
+Code Book for the Output of run_analysis.R
+
+======
+Note: various descriptions of the data variables have been quoted from the README.txt file found in the zipped data available here https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Reference for downloaded data: [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+======
+
+Subject  1 to 30
+        The Subject associated with a particular observation. Subjects were a group of 30 volunteers within an age bracket of 19-48 years.
+
+        1  - Subject 1
+        2  - Subject 2
+        3  - Subject 3
+        4  - Subject 4
+        5  - Subject 5
+        6  - Subject 6
+        7  - Subject 7
+        8  - Subject 8
+        9  - Subject 9
+        10  - Subject 10
+        11  - Subject 11
+        12  - Subject 12
+        13  - Subject 13
+        14  - Subject 14
+        15  - Subject 15
+        16  - Subject 16
+        17  - Subject 17
+        18  - Subject 18
+        19  - Subject 19
+        20  - Subject 20
+        21  - Subject 21
+        22  - Subject 22
+        23  - Subject 23
+        24  - Subject 24
+        25  - Subject 25
+        26  - Subject 26
+        27  - Subject 27
+        28  - Subject 28
+        29  - Subject 29
+        30  - Subject 30
+
+Activity  factor
+        Activity performed by the Subject during the observation.
+
+        WALKING
+        WALKING_UPSTAIRS
+        WALKING_DOWNSTAIRS
+        SITTING
+        STANDING
+        LAYING
+
+Measurement  factor
+        Subjects wore a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, the experimenters aptured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details.
+
+        In this dataset, only Measurements taking the mean or standard deviation have been included. X, Y and Z refer to the X, Y and Z axis. Measurements take Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration or Triaxial Angular velocity from the gyroscope.
+
+        TimeBodyAccelerationMeanOfX
+        TimeBodyAccelerationMeanOfY
+        TimeBodyAccelerationMeanOfZ
+        TimeBodyAccelerationStandardDeviationOfX
+        TimeBodyAccelerationStandardDeviationOfY
+        TimeBodyAccelerationStandardDeviationOfZ
+        TimeGravityAccelerationMeanOfX
+        TimeGravityAccelerationMeanOfY
+        TimeGravityAccelerationMeanOfZ
+        TimeGravityAccelerationStandardDeviationOfX
+        TimeGravityAccelerationStandardDeviationOfY
+        TimeGravityAccelerationStandardDeviationOfZ
+        TimeBodyAccelerationJerkMeanOfX
+        TimeBodyAccelerationJerkMeanOfY
+        TimeBodyAccelerationJerkMeanOfZ
+        TimeBodyAccelerationJerkStandardDeviationOfX
+        TimeBodyAccelerationJerkStandardDeviationOfY
+        TimeBodyAccelerationJerkStandardDeviationOfZ
+        TimeBodyGyroscopeMeanOfX
+        TimeBodyGyroscopeMeanOfY
+        TimeBodyGyroscopeMeanOfZ
+        TimeBodyGyroscopeStandardDeviationOfX
+        TimeBodyGyroscopeStandardDeviationOfY
+        TimeBodyGyroscopeStandardDeviationOfZ
+        TimeBodyGyroscopeJerkMeanOfX
+        TimeBodyGyroscopeJerkMeanOfY
+        TimeBodyGyroscopeJerkMeanOfZ
+        TimeBodyGyroscopeJerkStandardDeviationOfX
+        TimeBodyGyroscopeJerkStandardDeviationOfY
+        TimeBodyGyroscopeJerkStandardDeviationOfZ
+        TimeBodyAccelerationMagnitudeMean
+        TimeBodyAccelerationMagnitudeStandardDeviation
+        TimeGravityAccelerationMagnitudeMean
+        TimeGravityAccelerationMagnitudeStandardDeviation
+        TimeBodyAccelerationJerkMagnitudeMean
+        TimeBodyAccelerationJerkMagnitudeStandardDeviation
+        TimeBodyGyroscopeMagnitudeMean
+        TimeBodyGyroscopeMagnitudeStandardDeviation
+        TimeBodyGyroscopeJerkMagnitudeMean
+        TimeBodyGyroscopeJerkMagnitudeStandardDeviation
+        FrequencyBodyAccelerationMeanOfX
+        FrequencyBodyAccelerationMeanOfY
+        FrequencyBodyAccelerationMeanOfZ
+        FrequencyBodyAccelerationStandardDeviationOfX
+        FrequencyBodyAccelerationStandardDeviationOfY
+        FrequencyBodyAccelerationStandardDeviationOfZ
+        FrequencyBodyAccelerationMeanFrequencyOfX
+        FrequencyBodyAccelerationMeanFrequencyOfY
+        FrequencyBodyAccelerationMeanFrequencyOfZ
+        FrequencyBodyAccelerationJerkMeanOfX
+        FrequencyBodyAccelerationJerkMeanOfY
+        FrequencyBodyAccelerationJerkMeanOfZ
+        FrequencyBodyAccelerationJerkStandardDeviationOfX
+        FrequencyBodyAccelerationJerkStandardDeviationOfY
+        FrequencyBodyAccelerationJerkStandardDeviationOfZ
+        FrequencyBodyAccelerationJerkMeanFrequencyOfX
+        FrequencyBodyAccelerationJerkMeanFrequencyOfY
+        FrequencyBodyAccelerationJerkMeanFrequencyOfZ
+        FrequencyBodyGyroscopeMeanOfX
+        FrequencyBodyGyroscopeMeanOfY
+        FrequencyBodyGyroscopeMeanOfZ
+        FrequencyBodyGyroscopeStandardDeviationOfX
+        FrequencyBodyGyroscopeStandardDeviationOfY
+        FrequencyBodyGyroscopeStandardDeviationOfZ
+        FrequencyBodyGyroscopeMeanFrequencyOfX
+        FrequencyBodyGyroscopeMeanFrequencyOfY
+        FrequencyBodyGyroscopeMeanFrequencyOfZ
+        FrequencyBodyAccelerationMagnitudeMean
+        FrequencyBodyAccelerationMagnitudeStandardDeviation
+        FrequencyBodyAccelerationMagnitudeMeanFrequency
+        FrequencyBodyAccelerationJerkMagnitudeMean
+        FrequencyBodyAccelerationJerkMagnitudeStandardDeviation
+        FrequencyBodyAccelerationJerkMagnitudeMeanFrequency
+        FrequencyBodyGyroscopeMagnitudeMean
+        FrequencyBodyGyroscopeMagnitudeStandardDeviation
+        FrequencyBodyGyroscopeMagnitudeMeanFrequency
+        FrequencyBodyGyroscopeJerkMagnitudeMean
+        FrequencyBodyGyroscopeJerkMagnitudeStandardDeviation
+        FrequencyBodyGyroscopeJerkMagnitudeMeanFrequency
+
+Mean   statistical measure
+        The calculated mean of each Measurement's values by Subject and Activity.
+
+Notes: 
+======
+- Original Measurement values were normalized and bounded within [-1,1].
+
+For more information about the downloaded dataset contact: activityrecognition@smartlab.ws
