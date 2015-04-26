@@ -1,9 +1,8 @@
-# Read in the activity_labels document
-        activityLabels <- read.table("activity_labels.txt", quote="\"")
-
 # Read in the test and train activity labels
-        testLabels <- read.table("./test/y_test.txt", quote="\"")
-        trainLabels <- read.table("./train/y_train.txt", quote="\"")
+        testLabels <- read.table("./UCI HAR Dataset/test/y_test.txt", 
+                quote="\"")
+        trainLabels <- read.table("./UCI HAR Dataset/train/y_train.txt", 
+                quote="\"")
 
 # Create decriptive names for columns of interest
         features1 <- c("TimeBodyAccelerationMeanOfX",
@@ -70,8 +69,9 @@
                 "FrequencyBodyGyroscopeJerkMagnitudeStandardDeviation")
         
 # Read in test and train sets, drop unneeded columns, apply descriptive names
-        testSet <- read.table("./test/X_test.txt", quote="\"")
-        trainSet <- read.table("./train/X_train.txt", quote="\"")
+        testSet <- read.table("./UCI HAR Dataset/test/X_test.txt", quote="\"")
+        trainSet <- read.table("./UCI HAR Dataset/train/X_train.txt", 
+                quote="\"")
         
         testSet1 <- testSet[c(1:6,41:46,81:86,121:126,161:166,201:202,214:215,
                 227:228,240:241,253:254,266:271,345:350,424:429,503:504,516:517,
@@ -84,27 +84,32 @@
         names(trainSet1) <- features1
         
 # Read in test and train subjects
-        subjectTest <- read.table("./test/subject_test.txt", quote="\"", 
-                col.names=c("Subject"))
-        subjectTrain <- read.table("./train/subject_train.txt", quote="\"", 
-                                  col.names=c("Subject"))
+        subjectTest <- read.table("./UCI HAR Dataset/test/subject_test.txt", 
+                quote="\"", col.names=c("Subject"))
+        subjectTrain <- read.table("./UCI HAR Dataset/train/subject_train.txt", 
+                quote="\"", col.names=c("Subject"))
 
-# Assign descriptive names to the test and train activities and get rid of 
-# column 1 and apply column name
-        testActivities <- merge(testLabels, activityLabels, by.x="V1", 
-                by.y="V1", all=TRUE,sort=FALSE)
-        trainActivities <- merge(trainLabels, activityLabels, by.x="V1", 
-                                by.y="V1", all=TRUE,sort=FALSE)
+# Assign descriptive names to the test and train activities and apply column 
+# name
+        testLabels$V1[testLabels$V1 == 1] <- "WALKING"
+        testLabels$V1[testLabels$V1 == 2] <- "WALKING_UPSTAIRS"
+        testLabels$V1[testLabels$V1 == 3] <- "WALKING_DOWNSTAIRS"
+        testLabels$V1[testLabels$V1 == 4] <- "SITTING"
+        testLabels$V1[testLabels$V1 == 5] <- "STANDING"
+        testLabels$V1[testLabels$V1 == 6] <- "LAYING"
+        trainLabels$V1[trainLabels$V1 == 1] <- "WALKING"
+        trainLabels$V1[trainLabels$V1 == 2] <- "WALKING_UPSTAIRS"
+        trainLabels$V1[trainLabels$V1 == 3] <- "WALKING_DOWNSTAIRS"
+        trainLabels$V1[trainLabels$V1 == 4] <- "SITTING"
+        trainLabels$V1[trainLabels$V1 == 5] <- "STANDING"
+        trainLabels$V1[trainLabels$V1 == 6] <- "LAYING"
         
-        testActivities1 <- testActivities[,"V2",drop=FALSE]
-        trainActivities1 <- trainActivities[,"V2",drop=FALSE]
-        
-        names(testActivities1) <- c("Activity")
-        names(trainActivities1) <- c("Activity")
+        names(testLabels) <- c("Activity")
+        names(trainLabels) <- c("Activity")
 
 # Create test and train dataframes, do not rename columns
-        testDF <- cbind(subjectTest,testActivities1,testSet1,deparse.level=0)
-        trainDF <- cbind(subjectTrain,trainActivities1,trainSet1,
+        testDF <- cbind(subjectTest,testLabels,testSet1,deparse.level=0)
+        trainDF <- cbind(subjectTrain,trainLabels,trainSet1,
                 deparse.level=0)
 
 # Merge test and train dataframes, do not rename columns
@@ -120,4 +125,3 @@
         fullDFmeans <- aggregate(fullDFmelt$Value,list(fullDFmelt$Subject,
                 fullDFmelt$Activity,fullDFmelt$Measurement),mean)
         names(fullDFmeans) <- c("Subject","Activity","Measurement","Mean")
-        fullDFmeans <- fullDFmeans[order(fullDFmeans$Subject),]
