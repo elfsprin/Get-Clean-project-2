@@ -144,7 +144,9 @@ subjectTrain <- read.table("./UCI HAR Dataset/train/subject_train.txt",
 # Aggregate the Value field based on Subject, Activity and Measurement using 
 # the mean function; reapply column names. fullDFmeans is the tidy dataset
 # required in step 5 of this course project.
-
         fullDFmeans <- aggregate(fullDFmelt$Value,list(fullDFmelt$Subject,
                 fullDFmelt$Activity,fullDFmelt$Measurement),mean)
         names(fullDFmeans) <- c("Subject","Activity","Measurement","Mean")
+
+# Output the fullDFmeans data as a .txt file
+        write.table(fullDFmeans,file="step5table.txt",row.names=FALSE)

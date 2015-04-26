@@ -19,4 +19,5 @@
 7. Creates a test dataframe 'testDF' and a train dataframe 'trainDF' by column binding their respective Subject, Activity, and Measurement data.  
 8. Creates a single comprehensive dataframe 'fullDF' by row binding the 'testDF' and 'trainDF' dataframes.  
 9. Melts 'fullDF' using Subject and Activity as identity variables, creating 'fullDFmelt'.  
-10. Aggregates the 'fullDFmelt' Value field by Subject, Activity and Measurement using the mean function.  This produces this fullDFmeans dataframe, which provides the Mean of each Measurement for each Subject and Activity.
+10. Aggregates the 'fullDFmelt' Value field by Subject, Activity and Measurement using the mean function.  This produces this fullDFmeans dataframe, which provides the Mean of each Measurement for each Subject and Activity.  
+11. Writes the final output fullDFmeans to a .txt file in the working directory.
